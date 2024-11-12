@@ -1,0 +1,130 @@
+Requête 1:
+SELECT Acheteur.Nom, Acheteur.Prénom, Acheteur.Mail, Logement.Adresse, Logement.Ville, Logement.Prix
+FROM Acheteur
+JOIN Logement ON Acheteur.id_acheteur = Logement.id_logement
+WHERE Logement.Ville = 'Paris';
+
+Requête 2:
+SELECT Vendeur.Nom, Vendeur.Prénom, COUNT(id_logement) AS Nombre_Logements_Vendus
+FROM Vendeur
+JOIN Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+GROUP BY Vendeur.id_vendeur;
+
+Requête 3:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom,
+    Logement.Ville,
+    COUNT(Logement.id_logement) AS Nombre_Logements_Vendus
+FROM 
+    Vendeur
+JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+WHERE 
+    Logement.Prix BETWEEN 100000 AND 500000
+    AND Logement.Ville = 'Paris' GROUP BY 
+    Vendeur.id_vendeur, Logement.Ville HAVING 
+    COUNT(Logement.id_logement) > 0  ORDER BY 
+    Nombre_Logements_Vendus DESC;
+
+Requête 4:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom,
+    Logement.Ville,
+    COUNT(Logement.id_logement) AS Nombre_Logements_Vendus
+FROM 
+    Vendeur
+JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+WHERE 
+    Logement.Prix BETWEEN 100000 AND 200000
+GROUP BY 
+    Vendeur.id_vendeur, Logement.Ville
+HAVING 
+    COUNT(Logement.id_logement) > 0
+ORDER BY 
+    Nombre_Logements_Vendus DESC;
+
+Requête 5:
+SELECT 
+    Logement.Ville, 
+    COUNT(Logement.id_logement) AS Nombre_Logements_Vendus
+FROM 
+    Logement
+GROUP BY 
+    Logement.Ville
+HAVING 
+    COUNT(Logement.id_logement) > 0
+ORDER BY 
+    Nombre_Logements_Vendus DESC;
+
+Requête 6:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom,
+    Vendeur.Tel AS Vendeur_Téléphone,
+    Vendeur.Mail AS Vendeur_Email
+FROM 
+    Vendeur
+JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+GROUP BY 
+    Vendeur.id_vendeur
+ORDER BY 
+    Vendeur.Nom, Vendeur.Prénom;
+
+Requête 7:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom,
+    Logement.Ville AS Ville_Logement,
+    Logement.Prix AS Prix_Logement
+FROM 
+    Vendeur
+JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+ORDER BY 
+    Logement.Ville, Prix_Logement DESC;
+
+Requête 8:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom,
+    Logement.Ville AS Ville_Logement,
+    COUNT(Logement.id_logement) AS Nombre_Logements_Vendus
+FROM 
+    Vendeur
+JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+GROUP BY 
+    Vendeur.id_vendeur, Logement.Ville
+ORDER BY 
+    Nombre_Logements_Vendus DESC;
+
+Requête 9:
+SELECT 
+    Acheteur.Nom AS Acheteur_Nom,
+    Acheteur.Prénom AS Acheteur_Prénom,
+    Acheteur.Tel AS Acheteur_Téléphone,
+    Acheteur.Mail AS Acheteur_Email,
+    COUNT(Logement.id_logement) AS Nombre_Logements_Achétés
+FROM 
+    Acheteur
+JOIN 
+    Logement ON Acheteur.id_acheteur = Logement.id_vendeur
+GROUP BY 
+    Acheteur.id_acheteur
+ORDER BY 
+    Nombre_Logements_Achétés DESC;
+
+Requête 10:
+SELECT 
+    Vendeur.Nom AS Vendeur_Nom,
+    Vendeur.Prénom AS Vendeur_Prénom
+FROM 
+    Vendeur
+LEFT JOIN 
+    Logement ON Vendeur.id_vendeur = Logement.id_vendeur
+WHERE 
+    Logement.id_logement IS NULL;
