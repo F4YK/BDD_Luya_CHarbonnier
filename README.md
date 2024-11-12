@@ -29,7 +29,7 @@ Ce projet a été développé dans le cadre d'un projet d'études en BTS CIEL sp
 
 
 ## Installation
-La BDD est importable soit depuis le lien ci-dessous, soit avec le texte raw a impémenter dans la partie IMPORT dans phpmyadmin.
+La BDD est importable soit depuis le lien , soit avec le texte raw a impémenter dans la partie IMPORT dans phpmyadmin.
 
 
 
