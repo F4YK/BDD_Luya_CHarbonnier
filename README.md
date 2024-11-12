@@ -25,6 +25,8 @@ Ce projet a été développé dans le cadre d'un projet d'études en BTS CIEL sp
 ## Fonctionnalités
 
 - Définir une base de données de vendeur et d'acheteur de propriétés, avec les logements vendues et les employés qui s'occupe de cette vente.
+- ![image](https://github.com/user-attachments/assets/0176326b-d912-48d9-ad46-3c026c5b0ae2)
+
 
 ## Installation
 La BDD est importable soit depuis le lien ci-dessous, soit avec le texte raw a impémenter dans la partie IMPORT dans phpmyadmin.
