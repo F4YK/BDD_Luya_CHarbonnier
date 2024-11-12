@@ -31,9 +31,7 @@ La BDD est importable soit depuis le lien ci-dessous, soit avec le texte raw a i
 
 
 
-[Uplo-- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+
 --
 -- Host: mysql-charbobo.alwaysdata.net
 -- Generation Time: Nov 12, 2024 at 08:18 AM
